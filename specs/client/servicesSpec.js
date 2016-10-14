@@ -38,7 +38,7 @@ describe('Services', function () {
       ];
 
       $httpBackend.expect('GET', '/api/links').respond(mockResponse);
-
+      
       Links.getAll().then(function (links) {
         expect(links).to.deep.equal(mockResponse);
       });
