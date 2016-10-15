@@ -1,3 +1,12 @@
 <div id='container'>
-  <!-- Your html here -->
+  <ul>
+    <li ng-repeat="link in data.links">
+      <div>
+        <span>{{link.title}}<span>
+        <span>{{link.url}}<span>
+        <span>{{location + '/' + link.code}}<span>
+        <span>{{link.visits}}<span>
+      </div>
+    </li>
+  </ul>
 </div>
