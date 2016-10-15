@@ -1,13 +1,18 @@
 'use strict';
 
 describe('Routing', function () {
-  var $route, $http;
+  var $route, $rootScope, $location, $httpBackend;
   beforeEach(module('shortly'));
 
   beforeEach(inject(function ($injector) {
     $route = $injector.get('$route');
-    $http = $injector.get('$http');
+    $httpBackend = $injector.get('$httpBackend');
+    $rootScope = $injector.get('$rootScope');
+    $location = $injector.get('$location');
   }));
+
+  // afterEach(function () {
+  // });
 
   it('Should have /signup route, template, and controller', function () {
     expect($route.routes['/signup']).to.be.defined;
@@ -38,16 +43,15 @@ describe('Routing', function () {
     expect($route.routes['/links'].authenticate).to.equal(true);
   });
 
-  it('Should redirect to /links on unknown routes', function (done) {
-    $http({
-      method: 'GET',
-      url: 'http://127.0.0.1:8000/#/yodawg'
-    }).then(function(resp) {
-      console.log('yo dawg!!!!!~~~~~~~', resp);
-      // done();
+  it('Should redirect to /links on unknown routes', function () {
+    inject(function($httpBackend) {
+      $httpBackend.expectGET('app/auth/signin.html')
+      .respond(200);
     });
 
-    // done();
+    $location.path('signin');
+    $rootScope.$digest();
+    expect($route.current.controller).to.equal('AuthController');
   });
 
 });
