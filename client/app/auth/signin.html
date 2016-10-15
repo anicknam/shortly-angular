@@ -1,8 +1,10 @@
 <div id='signin'>
   <h1>signin</h1>
   <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
+    <input name="username" type='text' ng-model='user.username' required>
+    <p ng-show="signinForm.username.$invalid && !signinForm.username.$pristine">Please enter a usename</p>
+    <input name= "password" type="password" ng-model='user.password' required>
+    <p ng-show="signinForm.password.$invalid && !signinForm.password.$pristine">Please enter a password</p>
     <button>signin</button>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>

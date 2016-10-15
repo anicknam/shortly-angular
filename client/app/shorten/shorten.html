@@ -2,7 +2,7 @@
 <!-- Your code here -->
   <form name="shortening">
     <input type="url" name="input" ng-model="link.url" />
-    <input ng-if="shortening.input.$valid " type="Submit" ng-click="addLink()" />
+    <input ng-disabled="shortening.input.$invalid" type="Submit" ng-click="addLink()" />
   </form>
 
 </div>
