@@ -1,6 +1,7 @@
 <div id='container'>
+  <input type="text" name="name" ng-model="search">
   <ul>
-    <li ng-repeat="link in data.links">
+    <li ng-repeat="link in data.links | orderBy: '-visits' | filter:search">
       <div>
         <span>{{link.title}}<span>
         <span>{{link.url}}<span>
