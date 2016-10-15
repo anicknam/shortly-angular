@@ -18,19 +18,19 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
     })
     .when('/signout', {
-      controller: 'SignoutController',
-      redirectTo: '/signin'
+      template: '',
+      controller: 'SignoutController'
     })
-    .when('/', {
-      redirectTo: '/links'
-    });
+    .otherwise('/links');
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

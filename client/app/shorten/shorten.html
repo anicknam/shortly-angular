@@ -1,5 +1,10 @@
 <div id='container'>
 <!-- Your code here -->
+  <form name="shortening">
+    <input type="url" name="input" ng-model="link"/>
+    {{shortening.input.$valid}}
+    {{shortening.input}}
+  </form>
 
 </div>
 
