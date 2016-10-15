@@ -24,6 +24,7 @@ module.exports = function (config) {
       'specs/client/servicesSpec.js',
       'specs/client/linksControllerSpec.js',
       'specs/client/shortenControllerSpec.js',
+      'specs/client/signoutControllerSpec.js',
       'specs/client/routingSpec.js'
     ],
 
